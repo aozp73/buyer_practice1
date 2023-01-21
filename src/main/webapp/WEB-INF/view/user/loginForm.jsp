@@ -4,8 +4,8 @@
 
         <h1>로그인</h1>
         <form action="/login" method="post">
-            <input type="text" name="username" placeholder="Enter username"><br>
-            <input type="password" name="password" placeholder="Enter password"><br>
+            <input type="text" name="username" value="${remember}" placeholder="Enter username" required><br>
+            <input type="password" name="password" placeholder="Enter password" required><br>
             아이디 기억 <input type="checkbox" name="remember">
             <button type="submit">로그인</button>
         </form>

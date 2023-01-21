@@ -12,13 +12,13 @@
                 <td>등록일</td>
             </tr>
             <c:forEach items="${productList}" var="product">
-            <tr>
-                <td>${product.id}</td>
-                <td>${product.name}</td>
-                <td>${product.price}</td>
-                <td>${product.qty}</td>
-                <td>${product.createdAt}</td>
-            </tr>
+                <tr>
+                    <td>${product.id}</td>
+                    <td><a href="/product/${product.id}/detail">${product.name}</a></td>
+                    <td>${product.price}</td>
+                    <td>${product.qty}</td>
+                    <td>${product.createdAt}</td>
+                </tr>
             </c:forEach>
         </table>
 

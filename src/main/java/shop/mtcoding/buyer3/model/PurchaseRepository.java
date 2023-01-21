@@ -1,5 +1,8 @@
 package shop.mtcoding.buyer3.model;
 
-public class PurchaseRepository {
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface PurchaseRepository {
 
 }

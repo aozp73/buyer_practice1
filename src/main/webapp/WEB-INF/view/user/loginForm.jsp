@@ -2,7 +2,7 @@
 
     <%@ include file="../layout/header.jsp" %>
 
-        <h1>로그인 페이지</h1>
+        <h1>로그인</h1>
         <form action="/login" method="post">
             <input type="text" name="username" placeholder="Enter username"><br>
             <input type="password" name="password" placeholder="Enter password"><br>

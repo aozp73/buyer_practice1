@@ -9,6 +9,8 @@ import org.apache.ibatis.annotations.Param;
 public interface UserRepository {
     public int insert(@Param("username") String username, @Param("password") int password, @Param("email") int email);
 
+    public User findByUsernameAndEmail(@Param("username") String username, @Param("password") String password);
+
     public List<User> findALl();
 
     public User findById(int id);

@@ -9,6 +9,16 @@
     insert into purchase_tb(user_id, product_id, count, created_at) values(#{userId}, #{productId}, #{count}, now())
   </insert>
 
+  <select id="findProductById" resultType="shop.mtcoding.buyer3.model.Product">
+    select pr.id, pr.name, pr.price, pr.qty, pr.created_at from
+    (select *
+    from purchase_tb 
+    where id = #{id}) pu
+
+    inner join product_tb pr
+    on pu.product_id = pr.id;
+  </select>
+
   <select id="findByUserId" resultType="shop.mtcoding.buyer3.dto.PurchaseAllDto">
     select  pu.id, us.username, pr.name, pu.count from
     (select * from purchase_tb
@@ -22,4 +32,7 @@
 
   </select>
 
+  <delete id="deleteById">
+    delete from purchase_tb where id = #{id}
+  </delete>
 </mapper>

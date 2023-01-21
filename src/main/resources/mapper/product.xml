@@ -27,7 +27,7 @@
     </update>
 
     <delete id="deleteById">
-        delete * from product_tb where id = #{id}
+        delete from product_tb where id = #{id}
     </delete>
 
 </mapper>

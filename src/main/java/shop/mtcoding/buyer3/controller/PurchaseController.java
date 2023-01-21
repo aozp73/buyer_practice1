@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import shop.mtcoding.buyer3.dto.PurchaseAllDto;
-import shop.mtcoding.buyer3.model.Purchase;
 import shop.mtcoding.buyer3.model.PurchaseRepository;
 import shop.mtcoding.buyer3.model.User;
 import shop.mtcoding.buyer3.service.PurchaseService;
@@ -54,6 +54,23 @@ public class PurchaseController {
             model.addAttribute("purchaseList", purchaseList);
             return "purchase/list";
         }
+    }
 
+    @PostMapping("/purchase/{id}/delete")
+    public String delete(@PathVariable int id) {
+
+        User principal = (User) session.getAttribute("principal");
+
+        if (principal == null) {
+            return "redirect:/notfound";
+        }
+
+        int res = purchaseService.구매목록제거(id, principal.getId());
+
+        if (res == -1) {
+            return "redirect:/notfound";
+        }
+
+        return "redirect:/purchase";
     }
 }

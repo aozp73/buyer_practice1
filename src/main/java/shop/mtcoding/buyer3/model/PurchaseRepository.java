@@ -13,6 +13,8 @@ public interface PurchaseRepository {
 
     public List<PurchaseAllDto> findByUserId(int id);
 
+    public Product findProductById(int id);
+
     public List<Purchase> findALl();
 
     public Purchase findById(int id);
